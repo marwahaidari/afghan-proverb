@@ -1,0 +1,93 @@
+<style>
+    body {
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+  
+    .form-card {
+      background: white;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.2);
+      padding: 40px 35px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  
+    h1 {
+      font-size: 2rem;
+      color: #1e3a8a;
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+  
+    form input[type="text"] {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 12px 0;
+      border: 2px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      transition: border-color 0.3s ease;
+      box-sizing: border-box;
+    }
+  
+    form input[type="text"]:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+    }
+  
+    button {
+      margin-top: 25px;
+      background: #2563eb;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    button:hover {
+      background: #1e40af;
+    }
+  
+    a {
+      display: inline-block;
+      margin-top: 25px;
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+  
+    a:hover {
+      color: #1e40af;
+    }
+  </style>
+  
+  <div class="form-card">
+    <h1>Edit Post</h1>
+    <form action="/post/<%= post.id %>/update" method="POST">
+      <input type="text" name="textDari" value="<%= post.textDari %>" required />
+      <input type="text" name="textPashto" value="<%= post.textPashto %>" required />
+      <input type="text" name="translationEn" value="<%= post.translationEn %>" required />
+      <input type="text" name="meaning" value="<%= post.meaning %>" required />
+      <input type="text" name="category" value="<%= post.category %>" required />
+      <button type="submit">Update</button>
+    </form>
+    <a href="/">⬅ Back</a>
+  </div>
+  

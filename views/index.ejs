@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>All Proverbs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+      background: #f7f9fc;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #004466;
+    }
+    a.add-new {
+      display: inline-block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #007acc;
+    }
+    ul.proverbs-list {
+      list-style: none;
+      padding: 0;
+    }
+    li.proverb-item {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      transition: box-shadow 0.3s ease;
+    }
+    li.proverb-item:hover {
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+    .translation-en {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: #222;
+    }
+    .category {
+      font-size: 0.9em;
+      font-style: italic;
+      color: #777;
+      margin-bottom: 8px;
+    }
+    .language-text {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+    .label {
+      font-weight: 600;
+      color: #005577;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blog Proverbs</h1>
+  <a href="/post/new" class="add-new">➕ Add New Post</a>
+
+  <ul class="proverbs-list">
+    <% posts.forEach(post => { %>
+      <li class="proverb-item">
+        <div class="translation-en"><a href="/post/<%= post.id %>"><%= post.translationEn %></a></div>
+        <div class="category">Category: <%= post.category %></div>
+        <div class="language-text"><span class="label">Dari:</span> <%= post.textDari %></div>
+        <div class="language-text"><span class="label">Pashto:</span> <%= post.textPashto %></div>
+        <div class="language-text"><span class="label">Meaning:</span> <%= post.meaning %></div>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>
