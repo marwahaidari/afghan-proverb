@@ -35,6 +35,7 @@
       padding: 15px 20px;
       margin-bottom: 15px;
       transition: box-shadow 0.3s ease;
+      position: relative;
     }
     li.proverb-item:hover {
       box-shadow: 0 6px 15px rgba(0,0,0,0.15);
@@ -58,6 +59,17 @@
       font-weight: 600;
       color: #005577;
     }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #ff4d4d;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -66,7 +78,8 @@
 
   <ul class="proverbs-list">
     <% posts.forEach(post => { %>
-      <li class="proverb-item">
+      <li class="proverb-item" data-id="<%= post.id %>">
+        <button class="delete-btn">Delete</button>
         <div class="translation-en"><a href="/post/<%= post.id %>"><%= post.translationEn %></a></div>
         <div class="category">Category: <%= post.category %></div>
         <div class="language-text"><span class="label">Dari:</span> <%= post.textDari %></div>
@@ -75,5 +88,9 @@
       </li>
     <% }); %>
   </ul>
+
+  <!-- Load Axios and external script -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 </html>
