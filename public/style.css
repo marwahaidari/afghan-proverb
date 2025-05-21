@@ -1,0 +1,16 @@
+body {
+    font-family: 'Vazirmatn', 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+h1,
+h5 {
+    font-weight: 600;
+    color: #004466;
+}
+
+.card {
+    font-size: 1rem;
+    line-height: 1.6;
+}
